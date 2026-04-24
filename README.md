@@ -10,38 +10,24 @@ TRMSAccess is a Node.js + Express + MongoDB application layer for the Temporal R
 
 ## Requirements
 
+- Docker Desktop
+
+or
+
 - Node.js 20+
-- npm
-- Docker Desktop (for the containerized workflow)
+- Running MongoDB instance
 
 ## Project layout
 
-- Application code: [src](/C:/Users/radja/Desktop/project/TRMSAccess/src:1)
-- Docker setup: [docker-compose.yml](/C:/Users/radja/Desktop/project/TRMSAccess/docker-compose.yml:1), [docker/mongo-init.js](/C:/Users/radja/Desktop/project/TRMSAccess/docker/mongo-init.js:1)
-- Sample seed data: [sample-data](/C:/Users/radja/Desktop/project/TRMSAccess/sample-data:1)
+- Application code: [src](./src/server.js)
+- Docker setup: [docker-compose.yml](./docker-compose.yml)
+- Sample seed data: [sample-data](./TRMSAccess/sample-data)
 
-## Environment
+## Run the Project
 
-Create a `.env` file in the project root. For local host-based runs, use:
+The project can either be run with Docker, which will use its own MongoDB instance, or manually to point to a MongoDB instance that may already be running on your local machine.
 
-```env
-MONGO_URI=mongodb://localhost:27017
-DB_NAME=trms
-PORT=3000
-```
-
-Notes:
-
-- `localhost` is correct when you run Node on your host machine.
-- Docker Compose overrides the app container environment to use `mongodb://mongo:27017`.
-
-## Install dependencies
-
-```bash
-npm install
-```
-
-## Run with Docker
+### Run with Docker
 
 This is the simplest end-to-end path.
 
@@ -53,31 +39,56 @@ What happens:
 
 - MongoDB starts in the `mongo` service
 - The app starts in the `app` service
-- Mongo automatically imports the JSON files from [sample-data](/C:/Users/radja/Desktop/project/TRMSAccess/sample-data:1) on first startup
+- Mongo automatically imports the JSON files from [sample-data](./TRMSAccess/sample-data/) on first startup
 
 URLs:
 
 - App: [http://localhost:3000](http://localhost:3000)
 - MongoDB from host: `mongodb://localhost:27017`
 
-## Run locally against MongoDB on your machine
+### Run Locally
 
-1. Start MongoDB so it is reachable at `localhost:27017`
-2. Make sure your `.env` uses `MONGO_URI=mongodb://localhost:27017`
-3. Install dependencies
-4. Seed the database if needed
-5. Start the app
+Use this option if you want to run locally against a MongoDB instance already running on your local machine. Using this option **requires** your own mongodb instance.
 
-Commands:
+#### Setup Environment
+
+Duplicate the `.env.example` file in the project root to `.env`. It should look something like:
+
+```env
+MONGO_URI=mongodb://localhost:27017
+DB_NAME=trms
+PORT=3000
+```
+
+Note:
+- When running the server in Docker, this `.env` file is ignored, as the Docker container specifies its own environtment variables.
+
+#### Install dependencies
+
+Run the following to install the required dependencies:
+
+```bash
+npm install
+```
+
+#### Run the Server
+
+Ensure that MongoDB is running locally, and that the address is correct in your `.env` file. Run
 
 ```bash
 npm run seed:local
+```
+
+to seed the local MongoDB database with the seed data in [sample-data](./TRMSAccess/sample-data/). Then run
+
+```bash
 npm start
 ```
+to start the server.
 
 ## Seed data
 
-Bundled seed files live in [sample-data](/C:/Users/radja/Desktop/project/TRMSAccess/sample-data:1):
+Bundled seed files live in [sample-data](./TRMSAccess/sample-data/):
 
 - `TRMS.Personnel.json`
 - `TRMS.Mission.json`
@@ -85,9 +96,9 @@ Bundled seed files live in [sample-data](/C:/Users/radja/Desktop/project/TRMSAcc
 - `TRMS.Relic.json`
 - `TRMS.AccessLog.json`
 
-### Docker seed
+### Docker seeding
 
-Docker uses [docker/mongo-init.js](/C:/Users/radja/Desktop/project/TRMSAccess/docker/mongo-init.js:1) to import sample data automatically when the Mongo volume is empty.
+Docker uses [docker/mongo-init.js](./TRMSAccess/docker/mongo-init.js:1) to import sample data automatically when the Mongo volume is empty.
 
 ### Local seed
 
@@ -100,7 +111,7 @@ npm run seed:local
 This script:
 
 - Connects using `MONGO_URI`
-- Reads the JSON files from [sample-data](/C:/Users/radja/Desktop/project/TRMSAccess/sample-data:1)
+- Reads the JSON files from [sample-data](./TRMSAccess/sample-data/)
 - Strips any UTF-8 BOM before parsing
 - Inserts data only if the target collection is currently empty
 
@@ -155,4 +166,4 @@ Fix:
 
 ### `Unexpected token '﻿'` or `"[" is not valid JSON`
 
-One or more seed files contain a UTF-8 BOM. The local seed script already strips that BOM before parsing, so make sure you are using the current version of [scripts/seed-local.js](/C:/Users/radja/Desktop/project/TRMSAccess/scripts/seed-local.js:1).
+One or more seed files contain a UTF-8 BOM. The local seed script already strips that BOM before parsing, so make sure you are using the current version of [scripts/seed-local.js](./TRMSAccess/scripts/seed-local.js).
