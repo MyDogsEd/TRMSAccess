@@ -1,0 +1,79 @@
+<%- include("../partials/head", { title, appName }) %>
+<%- include("../partials/header", { appName }) %>
+
+<section class="grid columns">
+  <article class="panel">
+    <h2 class="section-title">Create mission</h2>
+    <form class="inline-form" method="post" action="/missions">
+      <div class="field">
+        <label for="missionDate">Mission date</label>
+        <input id="missionDate" type="date" name="missionDate" />
+      </div>
+      <div class="field">
+        <label for="codename">Codename</label>
+        <input id="codename" name="codename" required />
+      </div>
+      <div class="field">
+        <label for="objective">Objective</label>
+        <textarea id="objective" name="objective" required></textarea>
+      </div>
+      <div class="field">
+        <label for="status">Status</label>
+        <select id="status" name="status" required>
+          <% statuses.forEach(function (status) { %>
+            <option value="<%= status %>"><%= status %></option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="field">
+        <label for="outcome">Outcome</label>
+        <select id="outcome" name="outcome">
+          <option value="">Pending</option>
+          <% outcomes.forEach(function (outcome) { %>
+            <option value="<%= outcome %>"><%= outcome %></option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="field">
+        <label for="location">Location</label>
+        <input id="location" name="location" />
+      </div>
+      <div class="field">
+        <label>Assigned personnel</label>
+        <div class="checkbox-grid">
+          <% personnel.forEach(function (person) { %>
+            <label class="checkbox">
+              <input type="checkbox" name="assignedPersonnelIds" value="<%= person._id %>" />
+              <span><%= person.name %> (<%= person.role %>)</span>
+            </label>
+          <% }) %>
+        </div>
+      </div>
+      <button type="submit">Create mission</button>
+    </form>
+  </article>
+
+  <article class="panel">
+    <h2 class="section-title">Mission registry</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Codename</th><th>Status</th><th>Outcome</th><th>Assigned</th></tr>
+        </thead>
+        <tbody>
+          <% missions.forEach(function (mission) { %>
+            <tr>
+              <td><%= mission._id %></td>
+              <td><%= mission.codename %></td>
+              <td><span class="badge"><%= mission.status %></span></td>
+              <td><%= mission.outcome || "Pending" %></td>
+              <td><%= mission.assignedPersonnel.map(function (person) { return person.name; }).join(", ") || "Unassigned" %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </article>
+</section>
+
+<%- include("../partials/foot") %>

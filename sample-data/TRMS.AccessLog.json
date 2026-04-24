@@ -1,0 +1,242 @@
+﻿[
+    {
+        "_id":  1,
+        "personnel":  {
+                          "_id":  1,
+                          "name":  "Gordon Freeman",
+                          "role":  "FIELD_AGENT"
+                      },
+        "containmentUnit":  {
+                                "_id":  2,
+                                "location":  "Black Mesa Sector C",
+                                "containmentLevel":  "DANGEROUS"
+                            },
+        "relic":  {
+                      "_id":  1,
+                      "name":  "HEV Suit Mark IV",
+                      "containmentStatus":  "CONTAINED"
+                  },
+        "accessTime":  "1998-05-17T10:00:00Z",
+        "reason":  "Post-cascade containment review"
+    },
+    {
+        "_id":  2,
+        "personnel":  {
+                          "_id":  2,
+                          "name":  "Alyx Vance",
+                          "role":  "FIELD_AGENT"
+                      },
+        "containmentUnit":  {
+                                "_id":  3,
+                                "location":  "Nova Prospekt Wing A",
+                                "containmentLevel":  "UNSTABLE"
+                            },
+        "relic":  {
+                      "_id":  2,
+                      "name":  "Crowbar",
+                      "containmentStatus":  "CONTAINED"
+                  },
+        "accessTime":  "2004-09-15T11:30:00Z",
+        "reason":  "Weapon stabilization test"
+    },
+    {
+        "_id":  3,
+        "personnel":  {
+                          "_id":  3,
+                          "name":  "Isaac Kleiner",
+                          "role":  "RESEARCHER"
+                      },
+        "containmentUnit":  {
+                                "_id":  4,
+                                "location":  "City 17 Citadel Basement",
+                                "containmentLevel":  "DANGEROUS"
+                            },
+        "relic":  {
+                      "_id":  3,
+                      "name":  "Resonance Cascade Core Fragment",
+                      "containmentStatus":  "CONTAINED"
+                  },
+        "accessTime":  "2005-01-21T09:15:00Z",
+        "reason":  "Citadel systems audit"
+    },
+    {
+        "_id":  4,
+        "personnel":  {
+                          "_id":  4,
+                          "name":  "Wallace Breen",
+                          "role":  "ADMIN"
+                      },
+        "containmentUnit":  {
+                                "_id":  5,
+                                "location":  "Xen Bio Lab",
+                                "containmentLevel":  "UNSTABLE"
+                            },
+        "relic":  {
+                      "_id":  4,
+                      "name":  "Xen Crystal Sample",
+                      "containmentStatus":  "CONTAINED"
+                  },
+        "accessTime":  "1998-05-18T14:00:00Z",
+        "reason":  "Xen sample containment check"
+    },
+    {
+        "_id":  5,
+        "personnel":  {
+                          "_id":  5,
+                          "name":  "Arne Magnusson",
+                          "role":  "RESEARCHER"
+                      },
+        "containmentUnit":  {
+                                "_id":  6,
+                                "location":  "Resistance Safehouse 7",
+                                "containmentLevel":  "SAFE"
+                            },
+        "relic":  {
+                      "_id":  5,
+                      "name":  "Gluon Gun Prototype",
+                      "containmentStatus":  "CONTAINED"
+                  },
+        "accessTime":  "2006-03-12T16:45:00Z",
+        "reason":  "Conversion unit diagnostics"
+    },
+    {
+        "_id":  6,
+        "personnel":  {
+                          "_id":  6,
+                          "name":  "Barney Calhoun",
+                          "role":  "FIELD_AGENT"
+                      },
+        "containmentUnit":  {
+                                "_id":  2,
+                                "location":  "Black Mesa Sector C",
+                                "containmentLevel":  "DANGEROUS"
+                            },
+        "relic":  {
+                      "_id":  8,
+                      "name":  "G-Man Temporal Observation Marker",
+                      "containmentStatus":  "UNDER_STUDY"
+                  },
+        "accessTime":  "2003-06-03T08:20:00Z",
+        "reason":  "Headcrab cluster inspection"
+    },
+    {
+        "_id":  7,
+        "personnel":  {
+                          "_id":  7,
+                          "name":  "Judith Mossman",
+                          "role":  "RESEARCHER"
+                      },
+        "containmentUnit":  {
+                                "_id":  1,
+                                "location":  "Lambda Complex Vault",
+                                "containmentLevel":  "PARADOX"
+                            },
+        "relic":  {
+                      "_id":  6,
+                      "name":  "Teleportation Lab Module",
+                      "containmentStatus":  "UNDER_STUDY"
+                  },
+        "accessTime":  "2009-12-02T12:10:00Z",
+        "reason":  "Lambda fragment calibration"
+    },
+    {
+        "_id":  8,
+        "personnel":  {
+                          "_id":  8,
+                          "name":  "Dr. Eli Vance",
+                          "role":  "RESEARCHER"
+                      },
+        "containmentUnit":  {
+                                "_id":  10,
+                                "location":  "G-Man Observation Cell",
+                                "containmentLevel":  "PARADOX"
+                            },
+        "relic":  {
+                      "_id":  11,
+                      "name":  "Headcrab Biological Cluster",
+                      "containmentStatus":  "CONTAINED"
+                  },
+        "accessTime":  "2011-11-11T13:00:00Z",
+        "reason":  "Anomaly observation log"
+    },
+    {
+        "_id":  9,
+        "personnel":  {
+                          "_id":  9,
+                          "name":  "Adrian Shephard",
+                          "role":  "FIELD_AGENT"
+                      },
+        "containmentUnit":  {
+                                "_id":  9,
+                                "location":  "Teleportation Test Site",
+                                "containmentLevel":  "UNSTABLE"
+                            },
+        "relic":  {
+                      "_id":  10,
+                      "name":  "Combine Suppression Field Core",
+                      "containmentStatus":  "UNDER_STUDY"
+                  },
+        "accessTime":  "2006-07-08T17:30:00Z",
+        "reason":  "Portal node stabilization"
+    },
+    {
+        "_id":  10,
+        "personnel":  {
+                          "_id":  10,
+                          "name":  "G-Man",
+                          "role":  "ADMIN"
+                      },
+        "containmentUnit":  {
+                                "_id":  7,
+                                "location":  "Arctic Storage Vault",
+                                "containmentLevel":  "PARADOX"
+                            },
+        "relic":  {
+                      "_id":  7,
+                      "name":  "Portal Gun Prototype (Aperture Science)",
+                      "containmentStatus":  "UNDER_STUDY"
+                  },
+        "accessTime":  "2010-04-19T10:10:00Z",
+        "reason":  "Borealis tracking attempt"
+    },
+    {
+        "_id":  11,
+        "personnel":  {
+                          "_id":  11,
+                          "name":  "Dr. Rosenberg",
+                          "role":  "RESEARCHER"
+                      },
+        "containmentUnit":  {
+                                "_id":  5,
+                                "location":  "Xen Bio Lab",
+                                "containmentLevel":  "UNSTABLE"
+                            },
+        "relic":  {
+                      "_id":  12,
+                      "name":  "Borealis Prototype Drive Core",
+                      "containmentStatus":  "MISSING"
+                  },
+        "accessTime":  "2005-01-22T15:25:00Z",
+        "reason":  "Strider neural mapping"
+    },
+    {
+        "_id":  12,
+        "personnel":  {
+                          "_id":  12,
+                          "name":  "Colette Green",
+                          "role":  "FIELD_AGENT"
+                      },
+        "containmentUnit":  {
+                                "_id":  6,
+                                "location":  "Resistance Safehouse 7",
+                                "containmentLevel":  "SAFE"
+                            },
+        "relic":  {
+                      "_id":  9,
+                      "name":  "Gravity Gun (Zero-Point Energy Field Manipulator)",
+                      "containmentStatus":  "CONTAINED"
+                  },
+        "accessTime":  "1998-05-17T18:00:00Z",
+        "reason":  "HEV suit residue analysis"
+    }
+]

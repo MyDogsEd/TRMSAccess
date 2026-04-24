@@ -1,0 +1,33 @@
+{
+  "name": "trms-access",
+  "version": "1.0.0",
+  "description": "Temporal Relic Management System application layer with Express, MongoDB, SSR, and JSON APIs.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "check": "node --check src/server.js && node --check src/app.js && node --check src/config/db.js && node --check src/config/env.js && node --check src/controllers/accesslog.controller.js && node --check src/controllers/containment.controller.js && node --check src/controllers/mission.controller.js && node --check src/controllers/personnel.controller.js && node --check src/controllers/relic.controller.js && node --check src/repositories/accesslog.repo.js && node --check src/repositories/base.repo.js && node --check src/repositories/containment.repo.js && node --check src/repositories/mission.repo.js && node --check src/repositories/personnel.repo.js && node --check src/repositories/relic.repo.js && node --check src/routes/accesslog.routes.js && node --check src/routes/containment.routes.js && node --check src/routes/index.routes.js && node --check src/routes/mission.routes.js && node --check src/routes/personnel.routes.js && node --check src/routes/relic.routes.js && node --check src/services/accesslog.service.js && node --check src/services/containment.service.js && node --check src/services/mission.service.js && node --check src/services/personnel.service.js && node --check src/services/relic.service.js && node --check src/utils/enums.js && node --check src/utils/http.js && node --check src/utils/validators.js",
+    "seed:local": "node scripts/seed-local.js"
+  },
+  "keywords": [
+    "express",
+    "mongodb",
+    "ejs",
+    "docker",
+    "ssr"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "mongodb": "^6.17.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

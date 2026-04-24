@@ -1,0 +1,74 @@
+﻿[
+    {
+        "_id":  1,
+        "name":  "Gordon Freeman",
+        "role":  "FIELD_AGENT",
+        "specialization":  "Anomalous Physics Response"
+    },
+    {
+        "_id":  2,
+        "name":  "Alyx Vance",
+        "role":  "FIELD_AGENT",
+        "specialization":  "Resistance Operations"
+    },
+    {
+        "_id":  3,
+        "name":  "Isaac Kleiner",
+        "role":  "RESEARCHER",
+        "specialization":  "Teleportation Systems"
+    },
+    {
+        "_id":  4,
+        "name":  "Wallace Breen",
+        "role":  "ADMIN",
+        "specialization":  "Occupational Governance"
+    },
+    {
+        "_id":  5,
+        "name":  "Arne Magnusson",
+        "role":  "RESEARCHER",
+        "specialization":  "Defense Engineering"
+    },
+    {
+        "_id":  6,
+        "name":  "Barney Calhoun",
+        "role":  "FIELD_AGENT",
+        "specialization":  "Facility Security"
+    },
+    {
+        "_id":  7,
+        "name":  "Judith Mossman",
+        "role":  "RESEARCHER",
+        "specialization":  "Quantum Entanglement"
+    },
+    {
+        "_id":  8,
+        "name":  "Dr. Eli Vance",
+        "role":  "RESEARCHER",
+        "specialization":  "Xen Biology"
+    },
+    {
+        "_id":  9,
+        "name":  "Adrian Shephard",
+        "role":  "FIELD_AGENT",
+        "specialization":  "Black Ops Containment"
+    },
+    {
+        "_id":  10,
+        "name":  "G-Man",
+        "role":  "ADMIN",
+        "specialization":  "Unknown Directives"
+    },
+    {
+        "_id":  11,
+        "name":  "Dr. Rosenberg",
+        "role":  "RESEARCHER",
+        "specialization":  "Dimensional Travel"
+    },
+    {
+        "_id":  12,
+        "name":  "Colette Green",
+        "role":  "FIELD_AGENT",
+        "specialization":  "Hazardous Site Recovery"
+    }
+]

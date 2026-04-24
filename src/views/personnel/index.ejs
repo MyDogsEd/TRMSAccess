@@ -1,0 +1,50 @@
+<%- include("../partials/head", { title, appName }) %>
+<%- include("../partials/header", { appName }) %>
+
+<section class="grid columns">
+  <article class="panel">
+    <h2 class="section-title">Create personnel record</h2>
+    <form class="inline-form" method="post" action="/personnel">
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" name="name" required />
+      </div>
+      <div class="field">
+        <label for="role">Role</label>
+        <select id="role" name="role" required>
+          <% roles.forEach(function (role) { %>
+            <option value="<%= role %>"><%= role %></option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="field">
+        <label for="specialization">Specialization</label>
+        <input id="specialization" name="specialization" />
+      </div>
+      <button type="submit">Create record</button>
+    </form>
+  </article>
+
+  <article class="panel">
+    <h2 class="section-title">Personnel directory</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Name</th><th>Role</th><th>Specialization</th></tr>
+        </thead>
+        <tbody>
+          <% personnel.forEach(function (person) { %>
+            <tr>
+              <td><%= person._id %></td>
+              <td><%= person.name %></td>
+              <td><span class="badge"><%= person.role %></span></td>
+              <td><%= person.specialization || "N/A" %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </article>
+</section>
+
+<%- include("../partials/foot") %>

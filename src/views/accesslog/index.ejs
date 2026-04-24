@@ -1,0 +1,68 @@
+<%- include("../partials/head", { title, appName }) %>
+<%- include("../partials/header", { appName }) %>
+
+<section class="grid columns">
+  <article class="panel">
+    <h2 class="section-title">Log access event</h2>
+    <form class="inline-form" method="post" action="/access-logs">
+      <div class="field">
+        <label for="personnelId">Personnel</label>
+        <select id="personnelId" name="personnelId" required>
+          <% personnel.forEach(function (person) { %>
+            <option value="<%= person._id %>"><%= person.name %> (<%= person.role %>)</option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="field">
+        <label for="containmentUnitId">Containment unit</label>
+        <select id="containmentUnitId" name="containmentUnitId" required>
+          <% units.forEach(function (unit) { %>
+            <option value="<%= unit._id %>"><%= unit.location %> (min <%= unit.accessLevel %>)</option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="field">
+        <label for="relicId">Relic</label>
+        <select id="relicId" name="relicId" required>
+          <% relics.forEach(function (relic) { %>
+            <option value="<%= relic._id %>"><%= relic.name %> (<%= relic.containmentStatus %>)</option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="field">
+        <label for="accessTime">Access time</label>
+        <input id="accessTime" type="datetime-local" name="accessTime" />
+      </div>
+      <div class="field">
+        <label for="reason">Reason</label>
+        <textarea id="reason" name="reason" required></textarea>
+      </div>
+      <button type="submit">Create access log</button>
+      <p class="hint">Role hierarchy enforced: ADMIN > RESEARCHER > ANALYST > FIELD_AGENT.</p>
+    </form>
+  </article>
+
+  <article class="panel">
+    <h2 class="section-title">Access history</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Time</th><th>Personnel</th><th>Relic</th><th>Reason</th></tr>
+        </thead>
+        <tbody>
+          <% logs.forEach(function (log) { %>
+            <tr>
+              <td><%= log._id %></td>
+              <td><%= log.accessTime %></td>
+              <td><%= log.personnel.name %> (<%= log.personnel.role %>)</td>
+              <td><%= log.relic.name %></td>
+              <td><%= log.reason %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </article>
+</section>
+
+<%- include("../partials/foot") %>

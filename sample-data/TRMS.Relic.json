@@ -1,0 +1,298 @@
+﻿[
+    {
+        "_id":  1,
+        "name":  "HEV Suit Mark IV",
+        "description":  "Hazardous Environment protective suit",
+        "originTimePeriod":  "1998",
+        "discovery":  {
+                          "location":  "Black Mesa",
+                          "date":  "1998-05-16",
+                          "mission":  {
+                                          "_id":  1,
+                                          "codename":  "Black Mesa Incident",
+                                          "status":  "COMPLETE"
+                                      }
+                      },
+        "riskClassification":  "SAFE",
+        "containmentStatus":  "CONTAINED",
+        "containment":  {
+                            "unit":  {
+                                         "_id":  6,
+                                         "location":  "Resistance Safehouse 7",
+                                         "containmentLevel":  "SAFE"
+                                     },
+                            "date":  "1998-05-17"
+                        }
+    },
+    {
+        "_id":  2,
+        "name":  "Crowbar",
+        "description":  "Standard Black Mesa maintenance tool repurposed as survival instrument",
+        "originTimePeriod":  "1998",
+        "discovery":  {
+                          "location":  "Black Mesa Research Facility",
+                          "date":  "1998-05-16",
+                          "mission":  {
+                                          "_id":  1,
+                                          "codename":  "Black Mesa Incident",
+                                          "status":  "COMPLETE"
+                                      }
+                      },
+        "riskClassification":  "SAFE",
+        "containmentStatus":  "CONTAINED",
+        "containment":  {
+                            "unit":  {
+                                         "_id":  6,
+                                         "location":  "Resistance Safehouse 7",
+                                         "containmentLevel":  "SAFE"
+                                     },
+                            "date":  "1998-05-17"
+                        }
+    },
+    {
+        "_id":  3,
+        "name":  "Resonance Cascade Core Fragment",
+        "description":  "Residual Xen portal destabilization mass",
+        "originTimePeriod":  "1998",
+        "discovery":  {
+                          "location":  "Black Mesa",
+                          "date":  "1998-05-16",
+                          "mission":  {
+                                          "_id":  1,
+                                          "codename":  "Black Mesa Incident",
+                                          "status":  "COMPLETE"
+                                      }
+                      },
+        "riskClassification":  "PARADOX",
+        "containmentStatus":  "CONTAINED",
+        "containment":  {
+                            "unit":  {
+                                         "_id":  1,
+                                         "location":  "Lambda Complex Vault",
+                                         "containmentLevel":  "PARADOX"
+                                     },
+                            "date":  "1998-05-17"
+                        }
+    },
+    {
+        "_id":  4,
+        "name":  "Xen Crystal Sample",
+        "description":  "Extradimensional energy crystal",
+        "originTimePeriod":  "Pre-1998 Xen Incursion",
+        "discovery":  {
+                          "location":  "Black Mesa",
+                          "date":  "1998-05-16",
+                          "mission":  {
+                                          "_id":  1,
+                                          "codename":  "Black Mesa Incident",
+                                          "status":  "COMPLETE"
+                                      }
+                      },
+        "riskClassification":  "PARADOX",
+        "containmentStatus":  "CONTAINED",
+        "containment":  {
+                            "unit":  {
+                                         "_id":  5,
+                                         "location":  "Xen Bio Lab",
+                                         "containmentLevel":  "UNSTABLE"
+                                     },
+                            "date":  "1998-05-18"
+                        }
+    },
+    {
+        "_id":  5,
+        "name":  "Gluon Gun Prototype",
+        "description":  "Experimental anti-matter based weapon",
+        "originTimePeriod":  "1998",
+        "discovery":  {
+                          "location":  "Black Mesa",
+                          "date":  "1998-05-16",
+                          "mission":  {
+                                          "_id":  1,
+                                          "codename":  "Black Mesa Incident",
+                                          "status":  "COMPLETE"
+                                      }
+                      },
+        "riskClassification":  "DANGEROUS",
+        "containmentStatus":  "CONTAINED",
+        "containment":  {
+                            "unit":  {
+                                         "_id":  2,
+                                         "location":  "Black Mesa Sector C",
+                                         "containmentLevel":  "DANGEROUS"
+                                     },
+                            "date":  "1998-05-17"
+                        }
+    },
+    {
+        "_id":  6,
+        "name":  "Teleportation Lab Module",
+        "description":  "Early quantum displacement system",
+        "originTimePeriod":  "1998",
+        "discovery":  {
+                          "location":  "Black Mesa",
+                          "date":  "1998-05-16",
+                          "mission":  {
+                                          "_id":  6,
+                                          "codename":  "Portal Stabilization",
+                                          "status":  "COMPLETE"
+                                      }
+                      },
+        "riskClassification":  "UNSTABLE",
+        "containmentStatus":  "UNDER_STUDY",
+        "containment":  {
+                            "unit":  {
+                                         "_id":  9,
+                                         "location":  "Teleportation Test Site",
+                                         "containmentLevel":  "UNSTABLE"
+                                     },
+                            "date":  null
+                        }
+    },
+    {
+        "_id":  7,
+        "name":  "Portal Gun Prototype (Aperture Science)",
+        "description":  "Dual-aperture spatial displacement device",
+        "originTimePeriod":  "2010",
+        "discovery":  {
+                          "location":  "Aperture Science Enrichment Center",
+                          "date":  "2010-06-18",
+                          "mission":  {
+                                          "_id":  6,
+                                          "codename":  "Portal Stabilization",
+                                          "status":  "COMPLETE"
+                                      }
+                      },
+        "riskClassification":  "PARADOX",
+        "containmentStatus":  "UNDER_STUDY",
+        "containment":  {
+                            "unit":  {
+                                         "_id":  9,
+                                         "location":  "Teleportation Test Site",
+                                         "containmentLevel":  "UNSTABLE"
+                                     },
+                            "date":  null
+                        }
+    },
+    {
+        "_id":  8,
+        "name":  "G-Man Temporal Observation Marker",
+        "description":  "Unknown entity monitoring artifact",
+        "originTimePeriod":  "Unknown",
+        "discovery":  {
+                          "location":  "Unknown",
+                          "date":  "1998-05-16",
+                          "mission":  {
+                                          "_id":  10,
+                                          "codename":  "G-Man Observation",
+                                          "status":  "IN_PROGRESS"
+                                      }
+                      },
+        "riskClassification":  "PARADOX",
+        "containmentStatus":  "UNDER_STUDY",
+        "containment":  {
+                            "unit":  {
+                                         "_id":  10,
+                                         "location":  "G-Man Observation Cell",
+                                         "containmentLevel":  "PARADOX"
+                                     },
+                            "date":  null
+                        }
+    },
+    {
+        "_id":  9,
+        "name":  "Gravity Gun (Zero-Point Energy Field Manipulator)",
+        "description":  "Advanced physics manipulation device",
+        "originTimePeriod":  "2015",
+        "discovery":  {
+                          "location":  "City 17",
+                          "date":  "2015-01-20",
+                          "mission":  {
+                                          "_id":  3,
+                                          "codename":  "City 17 Uprising",
+                                          "status":  "COMPLETE"
+                                      }
+                      },
+        "riskClassification":  "DANGEROUS",
+        "containmentStatus":  "CONTAINED",
+        "containment":  {
+                            "unit":  {
+                                         "_id":  3,
+                                         "location":  "Nova Prospekt Wing A",
+                                         "containmentLevel":  "UNSTABLE"
+                                     },
+                            "date":  "2015-01-21"
+                        }
+    },
+    {
+        "_id":  10,
+        "name":  "Combine Suppression Field Core",
+        "description":  "Atmospheric reproduction control system",
+        "originTimePeriod":  "2015",
+        "discovery":  {
+                          "location":  "Citadel",
+                          "date":  "2015-01-20",
+                          "mission":  {
+                                          "_id":  3,
+                                          "codename":  "City 17 Uprising",
+                                          "status":  "COMPLETE"
+                                      }
+                      },
+        "riskClassification":  "UNSTABLE",
+        "containmentStatus":  "UNDER_STUDY",
+        "containment":  {
+                            "unit":  {
+                                         "_id":  4,
+                                         "location":  "City 17 Citadel Basement",
+                                         "containmentLevel":  "DANGEROUS"
+                                     },
+                            "date":  null
+                        }
+    },
+    {
+        "_id":  11,
+        "name":  "Headcrab Biological Cluster",
+        "description":  "Xen parasitic organism hive unit",
+        "originTimePeriod":  "1998",
+        "discovery":  {
+                          "location":  "Ravenholm",
+                          "date":  "2004-09-14",
+                          "mission":  {
+                                          "_id":  2,
+                                          "codename":  "Ravenholm Protocol",
+                                          "status":  "COMPLETE"
+                                      }
+                      },
+        "riskClassification":  "DANGEROUS",
+        "containmentStatus":  "CONTAINED",
+        "containment":  {
+                            "unit":  {
+                                         "_id":  2,
+                                         "location":  "Black Mesa Sector C",
+                                         "containmentLevel":  "DANGEROUS"
+                                     },
+                            "date":  "2004-09-15"
+                        }
+    },
+    {
+        "_id":  12,
+        "name":  "Borealis Prototype Drive Core",
+        "description":  "Experimental Aperture teleportation vessel core",
+        "originTimePeriod":  "Post-2007",
+        "discovery":  {
+                          "location":  "Arctic Sector",
+                          "date":  "2015-04-18",
+                          "mission":  {
+                                          "_id":  9,
+                                          "codename":  "Borealis Recovery",
+                                          "status":  "IN_PROGRESS"
+                                      }
+                      },
+        "riskClassification":  "PARADOX",
+        "containmentStatus":  "MISSING",
+        "containment":  {
+                            "unit":  null,
+                            "date":  null
+                        }
+    }
+]

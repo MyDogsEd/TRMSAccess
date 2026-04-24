@@ -1,0 +1,174 @@
+﻿[
+    {
+        "_id":  1,
+        "missionDate":  "1998-05-16",
+        "codename":  "Black Mesa Incident",
+        "objective":  "Contain resonance cascade",
+        "outcome":  "FAILURE",
+        "status":  "COMPLETE",
+        "location":  "Black Mesa",
+        "assignedPersonnel":  [
+                                  {
+                                      "_id":  1,
+                                      "name":  "Gordon Freeman",
+                                      "role":  "FIELD_AGENT"
+                                  },
+                                  {
+                                      "_id":  4,
+                                      "name":  "Wallace Breen",
+                                      "role":  "ADMIN"
+                                  },
+                                  {
+                                      "_id":  8,
+                                      "name":  "Dr. Eli Vance",
+                                      "role":  "RESEARCHER"
+                                  },
+                                  {
+                                      "_id":  9,
+                                      "name":  "Adrian Shephard",
+                                      "role":  "FIELD_AGENT"
+                                  }
+                              ]
+    },
+    {
+        "_id":  2,
+        "missionDate":  "2003-06-02",
+        "codename":  "Ravenholm Protocol",
+        "objective":  "Secure infected settlement",
+        "outcome":  "FAILURE",
+        "status":  "COMPLETE",
+        "location":  "Ravenholm",
+        "assignedPersonnel":  [
+                                  {
+                                      "_id":  6,
+                                      "name":  "Barney Calhoun",
+                                      "role":  "FIELD_AGENT"
+                                  }
+                              ]
+    },
+    {
+        "_id":  3,
+        "missionDate":  "2004-09-14",
+        "codename":  "City 17 Uprising",
+        "objective":  "Support resistance movement",
+        "outcome":  "SUCCESS",
+        "status":  "COMPLETE",
+        "location":  "City 17",
+        "assignedPersonnel":  [
+                                  {
+                                      "_id":  2,
+                                      "name":  "Alyx Vance",
+                                      "role":  "FIELD_AGENT"
+                                  }
+                              ]
+    },
+    {
+        "_id":  4,
+        "missionDate":  "2005-01-20",
+        "codename":  "Xen Survey",
+        "objective":  "Study interdimensional ecosystem",
+        "outcome":  null,
+        "status":  "IN_PROGRESS",
+        "location":  "Xen",
+        "assignedPersonnel":  [
+                                  {
+                                      "_id":  3,
+                                      "name":  "Isaac Kleiner",
+                                      "role":  "RESEARCHER"
+                                  },
+                                  {
+                                      "_id":  11,
+                                      "name":  "Dr. Rosenberg",
+                                      "role":  "RESEARCHER"
+                                  }
+                              ]
+    },
+    {
+        "_id":  5,
+        "missionDate":  "2006-03-11",
+        "codename":  "Combine Vault Breach",
+        "objective":  "Retrieve captive artifacts",
+        "outcome":  "SUCCESS",
+        "status":  "COMPLETE",
+        "location":  "Nova Prospekt",
+        "assignedPersonnel":  [
+                                  {
+                                      "_id":  5,
+                                      "name":  "Arne Magnusson",
+                                      "role":  "RESEARCHER"
+                                  }
+                              ]
+    },
+    {
+        "_id":  6,
+        "missionDate":  "2007-07-07",
+        "codename":  "Portal Stabilization",
+        "objective":  "Repair teleport network",
+        "outcome":  "FAILURE",
+        "status":  "COMPLETE",
+        "location":  "Black Mesa East",
+        "assignedPersonnel":  [
+                                  {
+                                      "_id":  7,
+                                      "name":  "Judith Mossman",
+                                      "role":  "RESEARCHER"
+                                  }
+                              ]
+    },
+    {
+        "_id":  7,
+        "missionDate":  "2008-10-30",
+        "codename":  "Stalker Extraction",
+        "objective":  "Recover converted humans",
+        "outcome":  null,
+        "status":  "NOT_STARTED",
+        "location":  "Combine Nexus",
+        "assignedPersonnel":  [
+
+                              ]
+    },
+    {
+        "_id":  8,
+        "missionDate":  "2009-12-01",
+        "codename":  "Lambda Containment",
+        "objective":  "Seal Lambda core breach",
+        "outcome":  "SUCCESS",
+        "status":  "COMPLETE",
+        "location":  "Lambda Complex",
+        "assignedPersonnel":  [
+
+                              ]
+    },
+    {
+        "_id":  9,
+        "missionDate":  "2010-04-18",
+        "codename":  "Borealis Recovery",
+        "objective":  "Locate experimental vessel",
+        "outcome":  null,
+        "status":  "IN_PROGRESS",
+        "location":  "Arctic Sector",
+        "assignedPersonnel":  [
+                                  {
+                                      "_id":  12,
+                                      "name":  "Colette Green",
+                                      "role":  "FIELD_AGENT"
+                                  }
+                              ]
+    },
+    {
+        "_id":  10,
+        "missionDate":  "2011-11-11",
+        "codename":  "G-Man Observation",
+        "objective":  "Monitor unknown entity",
+        "outcome":  null,
+        "status":  "IN_PROGRESS",
+        "location":  "Unknown",
+        "assignedPersonnel":  [
+                                  {
+                                      "_id":  10,
+                                      "name":  "G-Man",
+                                      "role":  "ADMIN"
+                                  }
+                              ]
+    }
+]

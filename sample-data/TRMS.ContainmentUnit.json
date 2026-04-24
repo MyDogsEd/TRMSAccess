@@ -1,0 +1,62 @@
+﻿[
+    {
+        "_id":  1,
+        "location":  "Lambda Complex Vault",
+        "accessLevel":  "ADMIN",
+        "containmentLevel":  "PARADOX"
+    },
+    {
+        "_id":  2,
+        "location":  "Black Mesa Sector C",
+        "accessLevel":  "RESEARCHER",
+        "containmentLevel":  "DANGEROUS"
+    },
+    {
+        "_id":  3,
+        "location":  "Nova Prospekt Wing A",
+        "accessLevel":  "FIELD_AGENT",
+        "containmentLevel":  "UNSTABLE"
+    },
+    {
+        "_id":  4,
+        "location":  "City 17 Citadel Basement",
+        "accessLevel":  "ADMIN",
+        "containmentLevel":  "DANGEROUS"
+    },
+    {
+        "_id":  5,
+        "location":  "Xen Bio Lab",
+        "accessLevel":  "RESEARCHER",
+        "containmentLevel":  "UNSTABLE"
+    },
+    {
+        "_id":  6,
+        "location":  "Resistance Safehouse 7",
+        "accessLevel":  "FIELD_AGENT",
+        "containmentLevel":  "SAFE"
+    },
+    {
+        "_id":  7,
+        "location":  "Arctic Storage Vault",
+        "accessLevel":  "ADMIN",
+        "containmentLevel":  "PARADOX"
+    },
+    {
+        "_id":  8,
+        "location":  "Stasis Chamber Delta",
+        "accessLevel":  "ADMIN",
+        "containmentLevel":  "DANGEROUS"
+    },
+    {
+        "_id":  9,
+        "location":  "Teleportation Test Site",
+        "accessLevel":  "RESEARCHER",
+        "containmentLevel":  "UNSTABLE"
+    },
+    {
+        "_id":  10,
+        "location":  "G-Man Observation Cell",
+        "accessLevel":  "ADMIN",
+        "containmentLevel":  "PARADOX"
+    }
+]

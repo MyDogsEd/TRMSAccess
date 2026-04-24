@@ -1,0 +1,94 @@
+<%- include("../partials/head", { title, appName }) %>
+<%- include("../partials/header", { appName }) %>
+
+<section class="grid columns">
+  <article class="panel">
+    <h2 class="section-title">Register relic</h2>
+    <form class="inline-form" method="post" action="/relics">
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" name="name" required />
+      </div>
+      <div class="field">
+        <label for="description">Description</label>
+        <textarea id="description" name="description"></textarea>
+      </div>
+      <div class="field">
+        <label for="originTimePeriod">Origin time period</label>
+        <input id="originTimePeriod" name="originTimePeriod" />
+      </div>
+      <div class="field">
+        <label for="riskClassification">Risk classification</label>
+        <select id="riskClassification" name="riskClassification" required>
+          <% riskClassifications.forEach(function (risk) { %>
+            <option value="<%= risk %>"><%= risk %></option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="field">
+        <label for="containmentStatus">Containment status</label>
+        <select id="containmentStatus" name="containmentStatus" required>
+          <% containmentStatuses.forEach(function (status) { %>
+            <option value="<%= status %>"><%= status %></option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="field">
+        <label for="discoveryLocation">Discovery location</label>
+        <input id="discoveryLocation" name="discoveryLocation" />
+      </div>
+      <div class="field">
+        <label for="discoveryDate">Discovery date</label>
+        <input id="discoveryDate" type="date" name="discoveryDate" />
+      </div>
+      <div class="field">
+        <label for="discoveryMissionId">Discovery mission</label>
+        <select id="discoveryMissionId" name="discoveryMissionId">
+          <option value="">None</option>
+          <% missions.forEach(function (mission) { %>
+            <option value="<%= mission._id %>"><%= mission.codename %></option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="field">
+        <label for="containmentUnitId">Containment unit</label>
+        <select id="containmentUnitId" name="containmentUnitId">
+          <option value="">None</option>
+          <% units.forEach(function (unit) { %>
+            <option value="<%= unit._id %>"><%= unit.location %> (<%= unit.containmentLevel %>)</option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="field">
+        <label for="containmentDate">Containment date</label>
+        <input id="containmentDate" type="date" name="containmentDate" />
+      </div>
+      <button type="submit">Register relic</button>
+      <p class="hint">Contained relics require a containment unit.</p>
+    </form>
+  </article>
+
+  <article class="panel">
+    <h2 class="section-title">Relic registry</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Name</th><th>Risk</th><th>Status</th><th>Containment</th></tr>
+        </thead>
+        <tbody>
+          <% relics.forEach(function (relic) { %>
+            <tr>
+              <td><%= relic._id %></td>
+              <td><%= relic.name %></td>
+              <td><span class="badge"><%= relic.riskClassification %></span></td>
+              <td><%= relic.containmentStatus %></td>
+              <td><%= relic.containment && relic.containment.unit ? relic.containment.unit.location : "Unassigned" %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </article>
+</section>
+
+<%- include("../partials/foot") %>

@@ -1,0 +1,83 @@
+<%- include("partials/head", { title, appName }) %>
+<%- include("partials/header", { appName }) %>
+
+<section class="hero">
+  <h2>Operational dashboard</h2>
+
+</section>
+
+<section class="grid cards">
+  <a class="stat" href="/personnel"><p>Personnel</p><h3><%= stats.personnel %></h3></a>
+  <a class="stat" href="/missions"><p>Missions</p><h3><%= stats.missions %></h3></a>
+  <a class="stat" href="/relics"><p>Relics</p><h3><%= stats.relics %></h3></a>
+  <a class="stat" href="/containment"><p>Containment Units</p><h3><%= stats.containmentUnits %></h3></a>
+  <a class="stat" href="/accessLog"><p>Access Logs</p><h3><%= stats.accessLogs %></h3></a>
+</section>
+
+<section class="grid columns">
+  <article class="panel">
+    <h3 class="section-title">Recent missions</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Codename</th><th>Status</th><th>Outcome</th></tr>
+        </thead>
+        <tbody>
+          <% recentMissions.forEach(function (mission) { %>
+            <tr>
+              <td><%= mission._id %></td>
+              <td><%= mission.codename %></td>
+              <td><span class="badge"><%= mission.status %></span></td>
+              <td><%= mission.outcome || "Pending" %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </article>
+
+  <article class="panel">
+    <h3 class="section-title">Recent access events</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Time</th><th>Personnel</th><th>Relic</th><th>Unit</th></tr>
+        </thead>
+        <tbody>
+          <% recentLogs.forEach(function (log) { %>
+            <tr>
+              <td><%= log.accessTime %></td>
+              <td><%= log.personnel.name %></td>
+              <td><%= log.relic.name %></td>
+              <td><%= log.containmentUnit.location %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </article>
+</section>
+
+<section class="panel">
+  <h3 class="section-title">Tracked relics</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>ID</th><th>Name</th><th>Risk</th><th>Status</th><th>Discovery Mission</th></tr>
+      </thead>
+      <tbody>
+        <% recentRelics.forEach(function (relic) { %>
+          <tr>
+            <td><%= relic._id %></td>
+            <td><%= relic.name %></td>
+            <td><%= relic.riskClassification %></td>
+            <td><%= relic.containmentStatus %></td>
+            <td><%= relic.discovery && relic.discovery.mission ? relic.discovery.mission.codename : "Unassigned" %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<%- include("partials/foot") %>

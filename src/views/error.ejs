@@ -1,0 +1,9 @@
+<%- include("partials/head", { title, appName }) %>
+
+<section class="panel error-panel">
+  <h2><%= error.statusCode %></h2>
+  <p><%= error.message %></p>
+  <p class="muted"><a href="/">Return to dashboard</a></p>
+</section>
+
+<%- include("partials/foot") %>

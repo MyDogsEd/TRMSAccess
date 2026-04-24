@@ -1,0 +1,54 @@
+<%- include("../partials/head", { title, appName }) %>
+<%- include("../partials/header", { appName }) %>
+
+<section class="grid columns">
+  <article class="panel">
+    <h2 class="section-title">Create containment unit</h2>
+    <form class="inline-form" method="post" action="/containment">
+      <div class="field">
+        <label for="location">Location</label>
+        <input id="location" name="location" required />
+      </div>
+      <div class="field">
+        <label for="accessLevel">Required role</label>
+        <select id="accessLevel" name="accessLevel" required>
+          <% accessLevels.forEach(function (level) { %>
+            <option value="<%= level %>"><%= level %></option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="field">
+        <label for="containmentLevel">Containment level</label>
+        <select id="containmentLevel" name="containmentLevel" required>
+          <% containmentLevels.forEach(function (level) { %>
+            <option value="<%= level %>"><%= level %></option>
+          <% }) %>
+        </select>
+      </div>
+      <button type="submit">Create containment unit</button>
+    </form>
+  </article>
+
+  <article class="panel">
+    <h2 class="section-title">Containment grid</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Location</th><th>Access level</th><th>Containment level</th></tr>
+        </thead>
+        <tbody>
+          <% units.forEach(function (unit) { %>
+            <tr>
+              <td><%= unit._id %></td>
+              <td><%= unit.location %></td>
+              <td><%= unit.accessLevel %></td>
+              <td><span class="badge"><%= unit.containmentLevel %></span></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </article>
+</section>
+
+<%- include("../partials/foot") %>
