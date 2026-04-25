@@ -36,9 +36,15 @@ async function update(req, res) {
   handleRedirect(req, res, "/relics", updated, 200);
 }
 
+async function remove(req, res) {
+  const removed = await relicService.remove(parseNumericId(req.params.id));
+  handleRedirect(req, res, "/relics", removed, 200);
+}
+
 module.exports = {
   create,
   getAll,
   getOne,
+  remove,
   update
 };

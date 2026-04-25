@@ -73,8 +73,53 @@ async function create(data) {
   return accessLogRepo.create(payload);
 }
 
+async function update(id, data) {
+  const existing = await getById(id);
+  const personnelId = data.personnelId ?? existing.personnel?._id;
+  const containmentUnitId = data.containmentUnitId ?? existing.containmentUnit?._id;
+  const relicId = data.relicId ?? existing.relic?._id;
+
+  const personnel = await personnelRepo.findById(Number(personnelId));
+  const containmentUnit = await containmentRepo.findById(Number(containmentUnitId));
+  const relic = await relicRepo.findById(Number(relicId));
+
+  if (!personnel || !containmentUnit || !relic) {
+    throw createValidationError("Personnel, containment unit, and relic must all exist.");
+  }
+
+  if (!hasRequiredAccess(personnel.role, containmentUnit.accessLevel)) {
+    throw createValidationError(
+      `Role ${personnel.role} does not meet required access level ${containmentUnit.accessLevel}.`,
+      403
+    );
+  }
+
+  const payload = {
+    ...existing,
+    personnel: toPersonnelSummary(personnel),
+    containmentUnit: toContainmentSummary(containmentUnit),
+    relic: toRelicSummary(relic),
+    accessTime: data.accessTime
+      ? new Date(data.accessTime).toISOString()
+      : existing.accessTime,
+    reason: data.reason ?? existing.reason
+  };
+
+  validateAccessLog(payload);
+  return accessLogRepo.update(id, payload);
+}
+
+async function remove(id) {
+  const existing = await getById(id);
+  await accessLogRepo.remove(id);
+
+  return existing;
+}
+
 module.exports = {
   create,
   getAll,
-  getById
+  getById,
+  remove,
+  update
 };

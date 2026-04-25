@@ -17,7 +17,19 @@ async function updateAssignedPersonnel(personnelId, summary) {
   );
 }
 
+async function removeAssignedPersonnel(personnelId) {
+  await baseRepo.collection().updateMany(
+    { "assignedPersonnel._id": personnelId },
+    {
+      $pull: {
+        assignedPersonnel: { _id: personnelId }
+      }
+    }
+  );
+}
+
 module.exports = {
   ...baseRepo,
+  removeAssignedPersonnel,
   updateAssignedPersonnel
 };

@@ -58,7 +58,7 @@
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>ID</th><th>Codename</th><th>Status</th><th>Outcome</th><th>Assigned</th></tr>
+          <tr><th>ID</th><th>Codename</th><th>Status</th><th>Outcome</th><th>Assigned</th><th>Actions</th></tr>
         </thead>
         <tbody>
           <% missions.forEach(function (mission) { %>
@@ -68,6 +68,99 @@
               <td><span class="badge"><%= mission.status %></span></td>
               <td><%= mission.outcome || "Pending" %></td>
               <td><%= mission.assignedPersonnel.map(function (person) { return person.name; }).join(", ") || "Unassigned" %></td>
+              <td class="actions-cell">
+                <div class="actions-wrap">
+                  <div class="action-buttons">
+                    <button
+                      type="button"
+                      class="table-action edit-toggle"
+                      data-target="mission-edit-<%= mission._id %>"
+                      data-closed-label="Edit"
+                      data-open-label="Cancel"
+                      aria-expanded="false"
+                    >
+                      Edit
+                    </button>
+                    <form method="post" action="/missions/<%= mission._id %>/delete">
+                      <button
+                        type="submit"
+                        class="table-action danger-action"
+                        onclick="return confirm('Delete mission <%= mission.codename %>?')"
+                      >
+                        Delete
+                      </button>
+                    </form>
+                  </div>
+                  <form
+                    id="mission-edit-<%= mission._id %>"
+                    class="inline-form compact-form inline-editor-form"
+                    method="post"
+                    action="/missions/<%= mission._id %>"
+                    hidden
+                  >
+                    <div class="field">
+                      <label for="mission-date-<%= mission._id %>">Mission date</label>
+                      <input
+                        id="mission-date-<%= mission._id %>"
+                        type="date"
+                        name="missionDate"
+                        value="<%= mission.missionDate || '' %>"
+                      />
+                    </div>
+                    <div class="field">
+                      <label for="mission-codename-<%= mission._id %>">Codename</label>
+                      <input
+                        id="mission-codename-<%= mission._id %>"
+                        name="codename"
+                        value="<%= mission.codename %>"
+                        required
+                      />
+                    </div>
+                    <div class="field">
+                      <label for="mission-objective-<%= mission._id %>">Objective</label>
+                      <textarea id="mission-objective-<%= mission._id %>" name="objective" required><%= mission.objective %></textarea>
+                    </div>
+                    <div class="field">
+                      <label for="mission-status-<%= mission._id %>">Status</label>
+                      <select id="mission-status-<%= mission._id %>" name="status" required>
+                        <% statuses.forEach(function (status) { %>
+                          <option value="<%= status %>" <%= mission.status === status ? "selected" : "" %>><%= status %></option>
+                        <% }) %>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="mission-outcome-<%= mission._id %>">Outcome</label>
+                      <select id="mission-outcome-<%= mission._id %>" name="outcome">
+                        <option value="">Pending</option>
+                        <% outcomes.forEach(function (outcome) { %>
+                          <option value="<%= outcome %>" <%= mission.outcome === outcome ? "selected" : "" %>><%= outcome %></option>
+                        <% }) %>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="mission-location-<%= mission._id %>">Location</label>
+                      <input id="mission-location-<%= mission._id %>" name="location" value="<%= mission.location || '' %>" />
+                    </div>
+                    <div class="field">
+                      <label>Assigned personnel</label>
+                      <div class="checkbox-grid compact-checkbox-grid">
+                        <% personnel.forEach(function (person) { %>
+                          <label class="checkbox">
+                            <input
+                              type="checkbox"
+                              name="assignedPersonnelIds"
+                              value="<%= person._id %>"
+                              <%= mission.assignedPersonnel.some(function (assigned) { return assigned._id === person._id; }) ? "checked" : "" %>
+                            />
+                            <span><%= person.name %> (<%= person.role %>)</span>
+                          </label>
+                        <% }) %>
+                      </div>
+                    </div>
+                    <button type="submit" class="table-action primary-action">Save</button>
+                  </form>
+                </div>
+              </td>
             </tr>
           <% }) %>
         </tbody>

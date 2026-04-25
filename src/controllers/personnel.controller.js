@@ -26,9 +26,15 @@ async function update(req, res) {
   handleRedirect(req, res, "/personnel", updated, 200);
 }
 
+async function remove(req, res) {
+  const removed = await personnelService.remove(parseNumericId(req.params.id));
+  handleRedirect(req, res, "/personnel", removed, 200);
+}
+
 module.exports = {
   create,
   getAll,
   getOne,
+  remove,
   update
 };

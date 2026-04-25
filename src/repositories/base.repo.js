@@ -30,12 +30,23 @@ function createBaseRepository(collectionName) {
     return findById(id);
   }
 
+  async function remove(id) {
+    const existing = await findById(id);
+    if (!existing) {
+      return null;
+    }
+
+    await collection().deleteOne({ _id: id });
+    return existing;
+  }
+
   return {
     collection,
     create,
     findAll,
     findById,
     getNextId,
+    remove,
     update
   };
 }

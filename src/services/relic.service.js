@@ -128,9 +128,17 @@ async function update(id, data) {
   return updated;
 }
 
+async function remove(id) {
+  const existing = await getById(id);
+  await relicRepo.remove(id);
+
+  return existing;
+}
+
 module.exports = {
   create,
   getAll,
   getById,
+  remove,
   update
 };

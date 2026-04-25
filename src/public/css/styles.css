@@ -49,6 +49,10 @@ a {
   margin-bottom: 1.5rem;
 }
 
+.brand {
+  text-decoration: none;
+}
+
 .brand h1,
 .brand p,
 .hero h2,
@@ -153,6 +157,26 @@ a {
 
 .table-wrap {
   overflow-x: auto;
+}
+
+.actions-cell {
+  min-width: 260px;
+}
+
+.actions-wrap {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.action-buttons form {
+  margin: 0;
 }
 
 table {
@@ -270,10 +294,53 @@ button:hover {
   gap: 0.6rem;
 }
 
+.compact-form {
+  margin-top: 0;
+}
+
+.inline-editor-form[hidden] {
+  display: none;
+}
+
+.table-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-width: 88px;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.table-action.primary-action {
+  background: linear-gradient(90deg, #e8b64e, #f7d27f);
+  color: #172027;
+}
+
+.table-action.edit-toggle[aria-expanded="true"] {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.table-action.danger-action {
+  background: rgba(255, 127, 127, 0.16);
+  color: #ffd2d2;
+  border-color: rgba(255, 127, 127, 0.35);
+}
+
 .checkbox-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   gap: 0.5rem;
+}
+
+.compact-checkbox-grid {
+  grid-template-columns: 1fr;
 }
 
 .checkbox {

@@ -31,8 +31,20 @@ async function create(req, res) {
   handleRedirect(req, res, "/access-logs", created);
 }
 
+async function update(req, res) {
+  const updated = await accessLogService.update(parseNumericId(req.params.id), req.body);
+  handleRedirect(req, res, "/access-logs", updated, 200);
+}
+
+async function remove(req, res) {
+  const removed = await accessLogService.remove(parseNumericId(req.params.id));
+  handleRedirect(req, res, "/access-logs", removed, 200);
+}
+
 module.exports = {
   create,
   getAll,
-  getOne
+  getOne,
+  remove,
+  update
 };

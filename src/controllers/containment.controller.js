@@ -27,9 +27,15 @@ async function update(req, res) {
   handleRedirect(req, res, "/containment", updated, 200);
 }
 
+async function remove(req, res) {
+  const removed = await containmentService.remove(parseNumericId(req.params.id));
+  handleRedirect(req, res, "/containment", removed, 200);
+}
+
 module.exports = {
   create,
   getAll,
   getOne,
+  remove,
   update
 };

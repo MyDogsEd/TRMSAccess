@@ -34,7 +34,7 @@
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>ID</th><th>Location</th><th>Access level</th><th>Containment level</th></tr>
+          <tr><th>ID</th><th>Location</th><th>Access level</th><th>Containment level</th><th>Actions</th></tr>
         </thead>
         <tbody>
           <% units.forEach(function (unit) { %>
@@ -43,6 +43,60 @@
               <td><%= unit.location %></td>
               <td><%= unit.accessLevel %></td>
               <td><span class="badge"><%= unit.containmentLevel %></span></td>
+              <td class="actions-cell">
+                <div class="actions-wrap">
+                  <div class="action-buttons">
+                    <button
+                      type="button"
+                      class="table-action edit-toggle"
+                      data-target="unit-edit-<%= unit._id %>"
+                      data-closed-label="Edit"
+                      data-open-label="Cancel"
+                      aria-expanded="false"
+                    >
+                      Edit
+                    </button>
+                    <form method="post" action="/containment/<%= unit._id %>/delete">
+                      <button
+                        type="submit"
+                        class="table-action danger-action"
+                        onclick="return confirm('Delete containment unit at <%= unit.location %>?')"
+                      >
+                        Delete
+                      </button>
+                    </form>
+                  </div>
+                  <form
+                    id="unit-edit-<%= unit._id %>"
+                    class="inline-form compact-form inline-editor-form"
+                    method="post"
+                    action="/containment/<%= unit._id %>"
+                    hidden
+                  >
+                    <div class="field">
+                      <label for="unit-location-<%= unit._id %>">Location</label>
+                      <input id="unit-location-<%= unit._id %>" name="location" value="<%= unit.location %>" required />
+                    </div>
+                    <div class="field">
+                      <label for="unit-access-<%= unit._id %>">Required role</label>
+                      <select id="unit-access-<%= unit._id %>" name="accessLevel" required>
+                        <% accessLevels.forEach(function (level) { %>
+                          <option value="<%= level %>" <%= unit.accessLevel === level ? "selected" : "" %>><%= level %></option>
+                        <% }) %>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="unit-containment-<%= unit._id %>">Containment level</label>
+                      <select id="unit-containment-<%= unit._id %>" name="containmentLevel" required>
+                        <% containmentLevels.forEach(function (level) { %>
+                          <option value="<%= level %>" <%= unit.containmentLevel === level ? "selected" : "" %>><%= level %></option>
+                        <% }) %>
+                      </select>
+                    </div>
+                    <button type="submit" class="table-action primary-action">Save</button>
+                  </form>
+                </div>
+              </td>
             </tr>
           <% }) %>
         </tbody>

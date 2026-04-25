@@ -51,9 +51,18 @@ async function update(id, data) {
   return updated;
 }
 
+async function remove(id) {
+  const existing = await getById(id);
+  await personnelRepo.remove(id);
+  await missionRepo.removeAssignedPersonnel(id);
+
+  return existing;
+}
+
 module.exports = {
   create,
   getAll,
   getById,
+  remove,
   update
 };

@@ -73,7 +73,7 @@
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>ID</th><th>Name</th><th>Risk</th><th>Status</th><th>Containment</th></tr>
+          <tr><th>ID</th><th>Name</th><th>Risk</th><th>Status</th><th>Containment</th><th>Actions</th></tr>
         </thead>
         <tbody>
           <% relics.forEach(function (relic) { %>
@@ -83,6 +83,126 @@
               <td><span class="badge"><%= relic.riskClassification %></span></td>
               <td><%= relic.containmentStatus %></td>
               <td><%= relic.containment && relic.containment.unit ? relic.containment.unit.location : "Unassigned" %></td>
+              <td class="actions-cell">
+                <div class="actions-wrap">
+                  <div class="action-buttons">
+                    <button
+                      type="button"
+                      class="table-action edit-toggle"
+                      data-target="relic-edit-<%= relic._id %>"
+                      data-closed-label="Edit"
+                      data-open-label="Cancel"
+                      aria-expanded="false"
+                    >
+                      Edit
+                    </button>
+                    <form method="post" action="/relics/<%= relic._id %>/delete">
+                      <button
+                        type="submit"
+                        class="table-action danger-action"
+                        onclick="return confirm('Delete relic <%= relic.name %>?')"
+                      >
+                        Delete
+                      </button>
+                    </form>
+                  </div>
+                  <form
+                    id="relic-edit-<%= relic._id %>"
+                    class="inline-form compact-form inline-editor-form"
+                    method="post"
+                    action="/relics/<%= relic._id %>"
+                    hidden
+                  >
+                    <div class="field">
+                      <label for="relic-name-<%= relic._id %>">Name</label>
+                      <input id="relic-name-<%= relic._id %>" name="name" value="<%= relic.name %>" required />
+                    </div>
+                    <div class="field">
+                      <label for="relic-description-<%= relic._id %>">Description</label>
+                      <textarea id="relic-description-<%= relic._id %>" name="description"><%= relic.description || "" %></textarea>
+                    </div>
+                    <div class="field">
+                      <label for="relic-origin-<%= relic._id %>">Origin time period</label>
+                      <input
+                        id="relic-origin-<%= relic._id %>"
+                        name="originTimePeriod"
+                        value="<%= relic.originTimePeriod || '' %>"
+                      />
+                    </div>
+                    <div class="field">
+                      <label for="relic-risk-<%= relic._id %>">Risk classification</label>
+                      <select id="relic-risk-<%= relic._id %>" name="riskClassification" required>
+                        <% riskClassifications.forEach(function (risk) { %>
+                          <option value="<%= risk %>" <%= relic.riskClassification === risk ? "selected" : "" %>><%= risk %></option>
+                        <% }) %>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="relic-status-<%= relic._id %>">Containment status</label>
+                      <select id="relic-status-<%= relic._id %>" name="containmentStatus" required>
+                        <% containmentStatuses.forEach(function (status) { %>
+                          <option value="<%= status %>" <%= relic.containmentStatus === status ? "selected" : "" %>><%= status %></option>
+                        <% }) %>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="relic-discovery-location-<%= relic._id %>">Discovery location</label>
+                      <input
+                        id="relic-discovery-location-<%= relic._id %>"
+                        name="discoveryLocation"
+                        value="<%= relic.discovery?.location || '' %>"
+                      />
+                    </div>
+                    <div class="field">
+                      <label for="relic-discovery-date-<%= relic._id %>">Discovery date</label>
+                      <input
+                        id="relic-discovery-date-<%= relic._id %>"
+                        type="date"
+                        name="discoveryDate"
+                        value="<%= relic.discovery?.date || '' %>"
+                      />
+                    </div>
+                    <div class="field">
+                      <label for="relic-mission-<%= relic._id %>">Discovery mission</label>
+                      <select id="relic-mission-<%= relic._id %>" name="discoveryMissionId">
+                        <option value="">None</option>
+                        <% missions.forEach(function (mission) { %>
+                          <option
+                            value="<%= mission._id %>"
+                            <%= relic.discovery && relic.discovery.mission && relic.discovery.mission._id === mission._id ? "selected" : "" %>
+                          >
+                            <%= mission.codename %>
+                          </option>
+                        <% }) %>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="relic-unit-<%= relic._id %>">Containment unit</label>
+                      <select id="relic-unit-<%= relic._id %>" name="containmentUnitId">
+                        <option value="">None</option>
+                        <% units.forEach(function (unit) { %>
+                          <option
+                            value="<%= unit._id %>"
+                            <%= relic.containment && relic.containment.unit && relic.containment.unit._id === unit._id ? "selected" : "" %>
+                          >
+                            <%= unit.location %> (<%= unit.containmentLevel %>)
+                          </option>
+                        <% }) %>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="relic-containment-date-<%= relic._id %>">Containment date</label>
+                      <input
+                        id="relic-containment-date-<%= relic._id %>"
+                        type="date"
+                        name="containmentDate"
+                        value="<%= relic.containment?.date || '' %>"
+                      />
+                    </div>
+                    <button type="submit" class="table-action primary-action">Save</button>
+                  </form>
+                </div>
+              </td>
             </tr>
           <% }) %>
         </tbody>

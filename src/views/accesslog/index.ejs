@@ -47,7 +47,7 @@
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>ID</th><th>Time</th><th>Personnel</th><th>Relic</th><th>Reason</th></tr>
+          <tr><th>ID</th><th>Time</th><th>Personnel</th><th>Relic</th><th>Reason</th><th>Actions</th></tr>
         </thead>
         <tbody>
           <% logs.forEach(function (log) { %>
@@ -57,6 +57,83 @@
               <td><%= log.personnel.name %> (<%= log.personnel.role %>)</td>
               <td><%= log.relic.name %></td>
               <td><%= log.reason %></td>
+              <td class="actions-cell">
+                <div class="actions-wrap">
+                  <div class="action-buttons">
+                    <button
+                      type="button"
+                      class="table-action edit-toggle"
+                      data-target="log-edit-<%= log._id %>"
+                      data-closed-label="Edit"
+                      data-open-label="Cancel"
+                      aria-expanded="false"
+                    >
+                      Edit
+                    </button>
+                    <form method="post" action="/access-logs/<%= log._id %>/delete">
+                      <button
+                        type="submit"
+                        class="table-action danger-action"
+                        onclick="return confirm('Delete access log <%= log._id %>?')"
+                      >
+                        Delete
+                      </button>
+                    </form>
+                  </div>
+                  <form
+                    id="log-edit-<%= log._id %>"
+                    class="inline-form compact-form inline-editor-form"
+                    method="post"
+                    action="/access-logs/<%= log._id %>"
+                    hidden
+                  >
+                    <div class="field">
+                      <label for="log-personnel-<%= log._id %>">Personnel</label>
+                      <select id="log-personnel-<%= log._id %>" name="personnelId" required>
+                        <% personnel.forEach(function (person) { %>
+                          <option value="<%= person._id %>" <%= log.personnel._id === person._id ? "selected" : "" %>>
+                            <%= person.name %> (<%= person.role %>)
+                          </option>
+                        <% }) %>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="log-unit-<%= log._id %>">Containment unit</label>
+                      <select id="log-unit-<%= log._id %>" name="containmentUnitId" required>
+                        <% units.forEach(function (unit) { %>
+                          <option value="<%= unit._id %>" <%= log.containmentUnit._id === unit._id ? "selected" : "" %>>
+                            <%= unit.location %> (min <%= unit.accessLevel %>)
+                          </option>
+                        <% }) %>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="log-relic-<%= log._id %>">Relic</label>
+                      <select id="log-relic-<%= log._id %>" name="relicId" required>
+                        <% relics.forEach(function (relic) { %>
+                          <option value="<%= relic._id %>" <%= log.relic._id === relic._id ? "selected" : "" %>>
+                            <%= relic.name %> (<%= relic.containmentStatus %>)
+                          </option>
+                        <% }) %>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="log-time-<%= log._id %>">Access time</label>
+                      <input
+                        id="log-time-<%= log._id %>"
+                        type="datetime-local"
+                        name="accessTime"
+                        value="<%= log.accessTime ? new Date(log.accessTime).toISOString().slice(0, 16) : '' %>"
+                      />
+                    </div>
+                    <div class="field">
+                      <label for="log-reason-<%= log._id %>">Reason</label>
+                      <textarea id="log-reason-<%= log._id %>" name="reason" required><%= log.reason %></textarea>
+                    </div>
+                    <button type="submit" class="table-action primary-action">Save</button>
+                  </form>
+                </div>
+              </td>
             </tr>
           <% }) %>
         </tbody>

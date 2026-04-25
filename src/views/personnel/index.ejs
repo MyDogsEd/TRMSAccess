@@ -30,7 +30,7 @@
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>ID</th><th>Name</th><th>Role</th><th>Specialization</th></tr>
+          <tr><th>ID</th><th>Name</th><th>Role</th><th>Specialization</th><th>Actions</th></tr>
         </thead>
         <tbody>
           <% personnel.forEach(function (person) { %>
@@ -39,6 +39,60 @@
               <td><%= person.name %></td>
               <td><span class="badge"><%= person.role %></span></td>
               <td><%= person.specialization || "N/A" %></td>
+              <td class="actions-cell">
+                <div class="actions-wrap">
+                  <div class="action-buttons">
+                    <button
+                      type="button"
+                      class="table-action edit-toggle"
+                      data-target="person-edit-<%= person._id %>"
+                      data-closed-label="Edit"
+                      data-open-label="Cancel"
+                      aria-expanded="false"
+                    >
+                      Edit
+                    </button>
+                    <form method="post" action="/personnel/<%= person._id %>/delete">
+                      <button
+                        type="submit"
+                        class="table-action danger-action"
+                        onclick="return confirm('Delete personnel record <%= person.name %>?')"
+                      >
+                        Delete
+                      </button>
+                    </form>
+                  </div>
+                  <form
+                    id="person-edit-<%= person._id %>"
+                    class="inline-form compact-form inline-editor-form"
+                    method="post"
+                    action="/personnel/<%= person._id %>"
+                    hidden
+                  >
+                    <div class="field">
+                      <label for="person-name-<%= person._id %>">Name</label>
+                      <input id="person-name-<%= person._id %>" name="name" value="<%= person.name %>" required />
+                    </div>
+                    <div class="field">
+                      <label for="person-role-<%= person._id %>">Role</label>
+                      <select id="person-role-<%= person._id %>" name="role" required>
+                        <% roles.forEach(function (role) { %>
+                          <option value="<%= role %>" <%= person.role === role ? "selected" : "" %>><%= role %></option>
+                        <% }) %>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="person-specialization-<%= person._id %>">Specialization</label>
+                      <input
+                        id="person-specialization-<%= person._id %>"
+                        name="specialization"
+                        value="<%= person.specialization || '' %>"
+                      />
+                    </div>
+                    <button type="submit" class="table-action primary-action">Save</button>
+                  </form>
+                </div>
+              </td>
             </tr>
           <% }) %>
         </tbody>

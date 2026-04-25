@@ -84,10 +84,19 @@ async function update(id, data) {
   return updated;
 }
 
+async function remove(id) {
+  const existing = await getById(id);
+  await missionRepo.remove(id);
+  await relicRepo.clearDiscoveryMission(id);
+
+  return existing;
+}
+
 module.exports = {
   create,
   getAll,
   getById,
+  remove,
   resolvePersonnelAssignments,
   update
 };

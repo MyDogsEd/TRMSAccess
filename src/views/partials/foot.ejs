@@ -1,3 +1,18 @@
+    <script>
+      document.querySelectorAll(".edit-toggle").forEach(function (button) {
+        button.addEventListener("click", function () {
+          var form = document.getElementById(button.dataset.target);
+          if (!form) {
+            return;
+          }
+
+          var isOpen = !form.hidden;
+          form.hidden = isOpen;
+          button.textContent = isOpen ? button.dataset.closedLabel : button.dataset.openLabel;
+          button.setAttribute("aria-expanded", String(!isOpen));
+        });
+      });
+    </script>
     </div>
   </body>
 </html>
