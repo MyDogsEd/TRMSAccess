@@ -22,7 +22,7 @@ async function run() {
     }
 
     const content = fs.readFileSync(path.join(seedRoot, filename), "utf8");
-    const docs = JSON.parse(content.replace(/^\uFEFF/, ""));
+    const docs = JSON.parse(content.replace(/^\uFEFF/, "")); // evil black magic!? .replace otherwise invalid
     if (docs.length > 0) {
       await collection.insertMany(docs);
     }
